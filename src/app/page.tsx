@@ -4,6 +4,7 @@ import logo from '/public/logo.svg';
 import Link from "next/link";
 import { api } from "@/services/api";
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers"; 
 
 export default function Home() {
 
@@ -24,6 +25,15 @@ export default function Home() {
       })
 
       console.log("Data:", response.data);
+
+      const expressTime = 60 * 60 * 24 * 30 * 1000;
+
+      cookies().set("login", response.data.token, {
+        maxAge: expressTime,
+        path: "/",
+        httpOnly: false,
+        secure: process.env.NODE_ENV === "production"
+      })
 
       if (!response.data.token) {
         return;
