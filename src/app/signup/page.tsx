@@ -45,7 +45,7 @@ export default function Signup() {
                         <input type="email" required name="email" placeholder="Digite seu email" className={styles.input}></input>
                         <input type="password" required name="password" placeholder="Senha" className={styles.input}></input>
                         <input type="password" required name="confirmPassword" placeholder="Confirme sua senha" className={styles.input}></input>
-                        <button type="submit">Acessar</button>
+                        <button type="submit">Cadastrar</button>
                     </form>
 
                     <Link href="/" className={styles.text}>
